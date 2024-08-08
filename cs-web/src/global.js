@@ -1,7 +1,7 @@
-const api = "https://cosm-hync.vercel.app";
+const api = "https://cosmhync.onrender.com";
 // const api = "http://localhost:3330";
 // const media = "http://localhost:8080";
-const media = "https://cosm-hync-mdia.vercel.app";
+const media = "https://cosmhync-1.onrender.com";
 
 module.exports = {
   media,
