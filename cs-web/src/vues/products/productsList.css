@@ -1,0 +1,236 @@
+@media only screen and (max-width: 850px) {
+  .productsListHeaderText {
+    /* margin-top: 5vh; */
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 1vw;
+    background-color: rgb(249, 245, 245);
+  }
+
+  .productsListHeaderTextTitle {
+    font-size: 18px;
+    color: rgb(150, 148, 148);
+    font-weight: 400;
+  }
+
+  .productsListHeaderTextDesc {
+    font-size: 16px;
+    color: rgb(125, 122, 122);
+    font-weight: 200;
+  }
+
+  .productListProductCard {
+    height: 30vh;
+    width: 35vw;
+    border: 1px solid #000;
+    border-radius: 10px;
+  }
+
+  .productListProductCard:hover {
+    height: 31vh;
+    width: 37vw;
+    border: 2px solid #000;
+    border-radius: 8px;
+    cursor: zoom-in;
+  }
+
+  .productListProductCardImageC {
+    height: 20vh;
+    width: 100%;
+  }
+
+  .productListProductCardImage {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .productListProductBottom {
+    height: 30%;
+    width: 100%;
+  }
+
+  .productListProductBottomLeft {
+    width: 45%;
+  }
+
+  .productListProductBottomRight {
+    width: 55%;
+    padding-left: 2vw;
+    margin-right: 1vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .productListProductsTitleText {
+    font-size: 25px;
+    font-family: cursive;
+    font-weight: 100;
+  }
+
+  .productListProductPrice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3vh;
+  }
+
+  .productListProductPriceBefore {
+    font-size: 11px;
+  }
+
+  .productListProductPriceAfter {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .productListProductBottom {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .productsListBody {
+    margin-top: 10vh;
+    padding-left: 2vw;
+    margin-bottom: 20vh;
+  }
+
+  .productsListBodyHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 10vw;
+    padding-left: 3vw;
+    margin-bottom: 6vh;
+  }
+
+  .productsListBodyTitle {
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .productsListBodyFilterTitle {
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .productsListHeaderText {
+    /* margin-top: 5vh; */
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 1vw;
+    background-color: rgb(249, 245, 245);
+  }
+
+  .productsListHeaderTextTitle {
+    font-size: 18px;
+    color: rgb(150, 148, 148);
+    font-weight: 400;
+  }
+
+  .productsListHeaderTextDesc {
+    font-size: 16px;
+    color: rgb(125, 122, 122);
+    font-weight: 200;
+  }
+
+  .productListProductCard {
+    height: 30vh;
+    width: 20vw;
+    border: 1px solid #000;
+    border-radius: 10px;
+  }
+
+  .productListProductCard:hover {
+    height: 32vh;
+    width: 21vw;
+    border: 2px solid #000;
+    border-radius: 8px;
+    cursor: zoom-in;
+  }
+
+  .productListProductCardImageC {
+    height: 20vh;
+    width: 100%;
+  }
+
+  .productListProductCardImage {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .productListProductBottom {
+    height: 30%;
+    width: 100%;
+  }
+
+  .productListProductBottomLeft {
+    width: 35%;
+  }
+
+  .productListProductBottomRight {
+    width: 65%;
+    padding-left: 2vw;
+    margin-right: 1vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .productListProductsTitleText {
+    font-size: 25px;
+    font-family: cursive;
+    font-weight: 100;
+  }
+
+  .productListProductPrice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vh;
+  }
+
+  .productListProductBottom {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .productsListBody {
+    margin-top: 10vh;
+    padding-left: 2vw;
+    margin-bottom: 20vh;
+  }
+
+  .productsListBodyHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 10vw;
+    padding-left: 3vw;
+    margin-bottom: 10vh;
+  }
+
+  .productsListBodyTitle {
+    font-weight: 500;
+    font-size: 26px;
+  }
+
+  .productsListBodyFilterTitle {
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .productsListBodyFilter {
+    width: 10vw;
+  }
+}

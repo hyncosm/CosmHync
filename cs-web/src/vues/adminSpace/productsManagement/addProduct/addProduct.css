@@ -1,0 +1,154 @@
+.addProductContainer {
+  width: 100%;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.addProduct {
+  width: 100%;
+  /* height: 100vh; */
+  background-color: #dff6ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* border: 2px solid #000; */
+}
+
+.addProductWrapper {
+  width: 80%;
+  height: 70%;
+  display: flex;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  /* margin-bottom: 7vh; */
+}
+
+.addProductLeft,
+.addProductRight {
+  /* flex: 1; */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: rgb(48, 30, 45); */
+}
+
+.addProductLogo {
+  font-size: 50px;
+  font-weight: 800;
+  color: #1775ee;
+  margin-bottom: 10px;
+}
+
+.addProductDesc {
+  font-size: 24px;
+}
+
+.addProductBox {
+  height: 60vh;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #47b5ff;
+}
+
+.addProductInput {
+  /* display: none; */
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
+  padding-left: 20px;
+  /* overflow: hidden;
+  position: absolute;
+  z-index: -1; */
+}
+
+.addProductInputFile {
+  display: none;
+  /* height: 50px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
+  padding-left: 20px; */
+  /* overflow: hidden;
+  position: absolute;
+  z-index: -1; */
+}
+
+.addProductInput:focus {
+  outline: none;
+}
+
+.addProductInputLabel {
+  /* border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px; */
+  height: 30px;
+  border: 1px solid rgb(106, 106, 106);
+  border-radius: 6px;
+  padding: 4px;
+  cursor: pointer;
+  font-size: 1.25em;
+  font-weight: 400;
+  color: #256d85;
+  background-color: transparent;
+  display: inline-block;
+}
+
+/* .addProductInputLabel:hover {
+  background-color: red;
+} */
+
+.addProductButton {
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #256d85;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.addProductButton:focus {
+  outline: none;
+}
+
+.addProductButton:disabled {
+  cursor: not-allowed;
+}
+
+.addProductForgot {
+  text-align: center;
+  color: #1775ee;
+}
+
+.addProductRegisterButton {
+  width: 60%;
+  align-self: center;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #256d85;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.categoriesTempFooter {
+  width: 100%;
+}
+
+.categoriesTempImgFooter {
+  width: 100%;
+  height: 60vh;
+  /* margin-top: 5vh; */
+}

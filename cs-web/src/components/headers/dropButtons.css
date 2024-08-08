@@ -1,0 +1,11 @@
+.container {
+  height: 6vh;
+  margin-bottom: 7vh;
+  border-bottom: solid 0.2px rgb(233, 228, 228);
+}
+
+.buttonsContainer {
+  margin-left: 3vw;
+  margin-top: 2vh;
+  height: 100%;
+}

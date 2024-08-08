@@ -1,0 +1,63 @@
+.categoriesTemp {
+  width: 100%;
+  margin-top: 7vh;
+  margin-bottom: 5vh;
+}
+
+.categoriesTempImg {
+  width: 100%;
+  /* margin-top: 5vh; */
+}
+
+.categoriesTemp2 {
+  width: 100%;
+  margin-top: 7vh;
+}
+
+.categoriesTempImg2 {
+  width: 100%;
+  /* height: 50vh; */
+  /* margin-top: 5vh; */
+}
+
+.categoriesTempImg1 {
+  width: 100%;
+  /* height: 50vh; */
+  /* margin-top: 5vh; */
+}
+
+.categoriesTempx {
+  width: 100%;
+  margin-bottom: 4vh;
+}
+
+.categoriesTempImgx {
+  width: 100%;
+  height: 50vh;
+  /* margin-top: 5vh; */
+}
+
+.categoriesTempImgy {
+  width: 100%;
+  /* height: 50vh; */
+  /* margin-top: 5vh; */
+}
+
+.categoriesTempy {
+  width: 100%;
+  /* margin-bottom: 4vh; */
+}
+
+.categoriesTempFooter {
+  width: 100%;
+}
+
+.categoriesTempImgFooter {
+  width: 100%;
+  /* margin-top: 5vh; */
+}
+
+/* .scroll {
+  overflow-y: scroll;
+  height: 60vh;
+} */

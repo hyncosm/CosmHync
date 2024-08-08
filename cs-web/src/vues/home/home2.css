@@ -1,0 +1,81 @@
+.home2Container {
+  background-color: rgb(204, 196, 209);
+}
+
+.home2Texts {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.home2TextsH1 {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.home2TextsH2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: grey;
+}
+
+.home2ButtonContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.home2WhyUs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15vh;
+  background-color: #fff;
+}
+
+.home2WhyUsTitle {
+  font-size: 40;
+  font-weight: 700;
+  margin-top: 8vh;
+  margin-bottom: 4vh;
+}
+
+.home2WhyUsElements {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 8vh;
+}
+
+.home2WhyUsElement {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1vw;
+  width: 20vw;
+  height: 50vh;
+}
+
+/* .home2WhyUsElement:hover {
+  width: 21vw;
+  height: 51vh;
+  box-shadow: 1px;
+} */
+
+.home2WhyUsElementText {
+  font-size: 25;
+  font-weight: 700;
+  margin-bottom: 3vh;
+}
+
+.home2WhyUsElementImg {
+  height: 20vh;
+  width: 50%;
+  border-radius: 10px;
+  margin-bottom: 3vh;
+}

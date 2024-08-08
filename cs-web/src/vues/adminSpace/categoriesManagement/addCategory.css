@@ -1,0 +1,169 @@
+.addCategoryContainer {
+  width: 100%;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.logoSfwContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+}
+
+.logosfwImg {
+  width: 20vh;
+  height: 20vh;
+  /* margin-top: 5vh; */
+}
+
+.addCategory {
+  width: 100%;
+  /* height: 100vh; */
+  background-color: #dff6ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* border: 2px solid #000; */
+}
+
+.addCategoryWrapper {
+  width: 60%;
+  height: 70%;
+  display: flex;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  /* margin-bottom: 7vh; */
+}
+
+.addCategoryLeft,
+.addCategoryRight {
+  /* flex: 1; */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: rgb(48, 30, 45); */
+}
+
+.addCategoryLogo {
+  font-size: 50px;
+  font-weight: 800;
+  color: #1775ee;
+  margin-bottom: 10px;
+}
+
+.addCategoryDesc {
+  font-size: 24px;
+}
+
+.addCategoryBox {
+  height: 30vh;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #47b5ff;
+}
+
+.addCategoryInput {
+  /* display: none; */
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
+  padding-left: 20px;
+  /* overflow: hidden;
+    position: absolute;
+    z-index: -1; */
+}
+
+.addCategoryInputFile {
+  display: none;
+  /* height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 18px;
+    padding-left: 20px; */
+  /* overflow: hidden;
+    position: absolute;
+    z-index: -1; */
+}
+
+.addCategoryInput:focus {
+  outline: none;
+}
+
+.addCategoryInputLabel {
+  /* border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px; */
+  height: 30px;
+  border: 1px solid rgb(106, 106, 106);
+  border-radius: 6px;
+  padding: 4px;
+  cursor: pointer;
+  font-size: 1.25em;
+  font-weight: 400;
+  color: #256d85;
+  background-color: transparent;
+  display: inline-block;
+}
+
+/* .addCategoryInputLabel:hover {
+    background-color: red;
+  } */
+
+.addCategoryButton {
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #256d85;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.addCategoryButton:focus {
+  outline: none;
+}
+
+.addCategoryButton:disabled {
+  cursor: not-allowed;
+}
+
+.addCategoryForgot {
+  text-align: center;
+  color: #1775ee;
+}
+
+.addCategoryRegisterButton {
+  width: 60%;
+  align-self: center;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #256d85;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.categoriesTempFooter {
+  width: 100%;
+}
+
+.categoriesTempImgFooter {
+  width: 100%;
+  height: 60vh;
+  /* margin-top: 5vh; */
+}

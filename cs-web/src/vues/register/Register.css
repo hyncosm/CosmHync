@@ -1,0 +1,217 @@
+@media only screen and (max-width: 850px) {
+  .logoSfwContainer {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+  }
+
+  .logosfwImg {
+    width: 25vh;
+    height: 25vh;
+    border-radius: 10px;
+    background-color: transparent;
+    /* margin-top: 5vh; */
+  }
+
+  .register {
+    width: 100vw;
+    /* margin-top: 5vh; */
+    /* height: 100vh; */
+    background-color: #dff6ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-image: url("../../assets/images/backgrounds/32.jpg");
+  }
+
+  .registerWrapper {
+    width: 75%;
+    /* height: 70%; */
+    display: flex;
+    margin-bottom: 7vh;
+  }
+
+  .registerRight {
+    /* flex: 1; */
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .registerLogo {
+    font-size: 50px;
+    font-weight: 800;
+    color: #702ebb;
+    margin-bottom: 10px;
+  }
+
+  .registerDesc {
+    font-size: 24px;
+  }
+
+  .registerBox {
+    height: 400px;
+    padding: 20px;
+    background-color: rgb(202, 192, 200);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .registerInput {
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .registerInput:focus {
+    outline: none;
+  }
+
+  .registerButton {
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #255faa;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .registerForgot {
+    text-align: center;
+    color: #1775ee;
+  }
+
+  .registerRegisterButton {
+    width: 60%;
+    align-self: center;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #198f2d;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .logoSfwContainer {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+  }
+
+  .logosfwImg {
+    width: 30vh;
+    height: 30vh;
+    border-radius: 10px;
+    background-color: transparent;
+    /* margin-top: 5vh; */
+  }
+
+  .register {
+    width: 100vw;
+    /* margin-top: 5vh; */
+    /* height: 100vh; */
+    background-color: #dff6ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-image: url("../../assets/images/backgrounds/32.jpg");
+  }
+
+  .registerWrapper {
+    width: 60%;
+    /* height: 70%; */
+    display: flex;
+    margin-bottom: 7vh;
+  }
+
+  .registerRight {
+    /* flex: 1; */
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .registerLogo {
+    font-size: 50px;
+    font-weight: 800;
+    color: #702ebb;
+    margin-bottom: 10px;
+  }
+
+  .registerDesc {
+    font-size: 24px;
+  }
+
+  .registerBox {
+    height: 400px;
+    padding: 20px;
+    background-color: rgb(202, 192, 200);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .registerInput {
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .registerInput:focus {
+    outline: none;
+  }
+
+  .registerButton {
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #255faa;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .registerForgot {
+    text-align: center;
+    color: #1775ee;
+  }
+
+  .registerRegisterButton {
+    width: 60%;
+    align-self: center;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #198f2d;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}

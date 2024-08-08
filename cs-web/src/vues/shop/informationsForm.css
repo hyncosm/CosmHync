@@ -1,0 +1,225 @@
+@media only screen and (max-width: 850px) {
+  .informationsFormContainer {
+    width: 100%;
+    /* height: 100vh; */
+    /* background-color: #dff6ff; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../../assets/images/backgrounds/32.jpg");
+    justify-content: center;
+    /* border: 2px solid #000; */
+  }
+
+  .infoFormWrapper {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+    /* margin-bottom: 7vh; */
+  }
+
+  .infoFormRight {
+    /* flex: 1; */
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: rgb(48, 30, 45); */
+  }
+
+  .infoFormLogo {
+    font-size: 50px;
+    font-weight: 800;
+    color: #1775ee;
+    margin-bottom: 10px;
+  }
+
+  .infoFormDesc {
+    font-size: 24px;
+  }
+
+  .infoFormBox {
+    height: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(156, 134, 153);
+  }
+
+  .infoFormInput {
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .infoFormInput:focus {
+    outline: none;
+  }
+
+  .infoFormButton {
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #25aa54;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .infoFormButton:focus {
+    outline: none;
+  }
+
+  .infoFormButton:disabled {
+    cursor: not-allowed;
+  }
+
+  .infoFormForgot {
+    text-align: center;
+    color: #1775ee;
+  }
+
+  .infoFormButton {
+    width: 60%;
+    align-self: center;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #198f2d;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .categoriesTempFooter {
+    width: 100%;
+  }
+
+  .categoriesTempImgFooter {
+    width: 100%;
+    height: 60vh;
+    /* margin-top: 5vh; */
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .informationsFormContainer {
+    width: 100%;
+    /* height: 100vh; */
+    /* background-color: #dff6ff; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../../assets/images/backgrounds/32.jpg");
+    justify-content: center;
+    /* border: 2px solid #000; */
+  }
+
+  .infoFormWrapper {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+    /* margin-bottom: 7vh; */
+  }
+
+  .infoFormRight {
+    /* flex: 1; */
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: rgb(48, 30, 45); */
+  }
+
+  .infoFormLogo {
+    font-size: 50px;
+    font-weight: 800;
+    color: #1775ee;
+    margin-bottom: 10px;
+  }
+
+  .infoFormDesc {
+    font-size: 24px;
+  }
+
+  .infoFormBox {
+    height: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(156, 134, 153);
+  }
+
+  .infoFormInput {
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .infoFormInput:focus {
+    outline: none;
+  }
+
+  .infoFormButton {
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #25aa54;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .infoFormButton:focus {
+    outline: none;
+  }
+
+  .infoFormButton:disabled {
+    cursor: not-allowed;
+  }
+
+  .infoFormForgot {
+    text-align: center;
+    color: #1775ee;
+  }
+
+  .infoFormButton {
+    width: 60%;
+    align-self: center;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #198f2d;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .categoriesTempFooter {
+    width: 100%;
+  }
+
+  .categoriesTempImgFooter {
+    width: 100%;
+    height: 60vh;
+    /* margin-top: 5vh; */
+  }
+}
