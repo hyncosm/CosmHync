@@ -34,10 +34,11 @@ export default function ProductsList() {
   const [increment, setIncrement] = useState();
   const [resultsRender, setResultsRender] = useState([]);
   const [category, setCategory] = useState("All");
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     setIncrement(width < 850 ? 2 : 3);
-  }, [increment, width]);
+  }, [increment, width, products, resultsRender]);
 
   useEffect(() => {
     axios
@@ -60,6 +61,7 @@ export default function ProductsList() {
             </div>
           );
           setResultsRender(divsToRender);
+          setProducts(response);
         }
       })
       .catch((error) => {
@@ -128,6 +130,7 @@ export default function ProductsList() {
 }
 
 function ProductCard({ product }) {
+  console.log(`${media}/files/${product.pictures[0]}`)
   return (
     <div className="productListProductCard">
       <div className="productListProductCardImageC">

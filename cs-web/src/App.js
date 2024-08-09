@@ -49,7 +49,7 @@ function App({ user, dispatch }) {
         <Route path="/buy" element={<InformationsForm />} />
         <Route
           path="/product/add"
-          element={
+          /* element={
             !user ? (
               <Home3 />
             ) : user.role === "SELLER" || user.role === "ADMIN" ? (
@@ -57,7 +57,10 @@ function App({ user, dispatch }) {
             ) : (
               <Home3 />
             )
-          }
+          } */
+            element={ 
+                <AddProduct2 />
+            }
         />
       </Routes>
     </Router>

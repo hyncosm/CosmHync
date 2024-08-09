@@ -14,10 +14,11 @@ export default function Home3() {
   const [resultsRender, setResultsRender] = useState([]);
   const { width } = useWindowDimensions();
   const [increment, setIncrement] = useState();
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
     setIncrement(width < 850 ? 2 : 3);
-  }, [increment, width]);
+  }, [increment, width, done, resultsRender]);
 
   useEffect(() => {
     axios
@@ -55,6 +56,7 @@ export default function Home3() {
       .catch((err) => {
         console.log("Error : ", err);
       });
+      setDone(!done);
   }, [increment, resultsRender]);
   return (
     <div>
@@ -92,7 +94,7 @@ export default function Home3() {
             <text className="home3ProductsTitleText">Our Best Sells !</text>
           </div>
           <div className="home3ProductsCards">
-            {resultsRender ? (
+            {resultsRender && 
               <div
                 style={{
                   width: "100%",
@@ -107,8 +109,7 @@ export default function Home3() {
                 <ProductCard product={product} /> */}
 
                 {resultsRender}
-              </div>
-            ) : null}
+              </div>}
           </div>
           <div className="home3ViewMoreButton">
             <Button
@@ -164,7 +165,7 @@ export default function Home3() {
             </text>
           </div>
           <div className="home3ProductsCards">
-            {resultsRender ? (
+            {resultsRender &&
               <div
                 style={{
                   width: "100%",
@@ -179,7 +180,7 @@ export default function Home3() {
                 <ProductCard product={product} /> */}
                 {divsToRender[1]}
               </div>
-            ) : null}
+           }
           </div>
           <div className="home3ViewMoreButton">
             <Button

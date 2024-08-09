@@ -81,7 +81,7 @@ function AddProduct2({ user }) {
 
     const imageId = await saveImage();
     addProduct({
-      owner: { id: user._id, name: user.name },
+      owner: { id: 1, name: "admin" },
       category: category,
       name: productName.current.value,
       pictures: [imageId],

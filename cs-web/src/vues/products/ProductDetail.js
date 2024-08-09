@@ -81,15 +81,12 @@ export default function ProductDetail() {
               <div className="productDetailRightData">
                 <text className="productDetailRightH1">-{">"} Details</text>
                 <text className="productDetailRightInstructions">
-                  <i>Instructions for use:</i>
+               
                 </text>
-                {product.instructions ? (
+               
                   <div>
-                    {product.instructions.map((i) => (
-                      <text>- {i}</text>
-                    ))}
+                    {product.desc}
                   </div>
-                ) : null}
               </div>
             </div>
           </div>
