@@ -22,31 +22,7 @@ const alterProduct = async (req, res) => {
     }
   });
 
-  // const image = new Image(product.image);
-  // try {
-  //   await image.save();
-  //   console.log("Image :: ", image);
-  //   product.pictures = product.image.image;
-  //   const query = {
-  //       _id: mongoose.Types.ObjectId(product._id),
-  //     },
-  //     update = product,
-  //     options = {
-  //       upsert: true,
-  //       new: true,
-  //     };
-  //   Product.findOneAndUpdate(query, update, options, function (error, result) {
-  //     if (error) {
-  //       console.log("An error occured : ", error);
-  //       return res.status(500).json({ message: error });
-  //     } else {
-  //       console.log("Result :", result);
-  //       return res.status(200).json(result);
-  //     }
-  //   });
-  // } catch (error) {
-  //   return res.status(500).json({ message: error });
-  // }
+ 
 };
 
 const getProductsForUser = async (req, res) => {
@@ -61,6 +37,37 @@ const getProductsForUser = async (req, res) => {
     });
 };
 
+const getProductsByCategory = async (req, res) => {
+  const { category } = req.body;
+
+  Product.find({ "category": category })
+    .then((result) => {
+      return res.status(200).json(result);
+    })
+    .catch((error) => {
+      return res.status(500).json({ error });
+    });
+};
+
+const getProductsByGender = async (req, res) => {
+  const { gender } = req.query;
+  console.log("----------------------",gender);
+
+  if(gender) {
+    Product.find({ "genders": gender })
+    .then((result) => {
+      return res.status(200).json(result);
+    })
+    .catch((error) => {
+      return res.status(500).json({ error });
+    }); 
+  } else {
+    return res.status(500).json({ error: "Gender is not present" });
+  }
+
+   
+};
+
 const getProducts = async (req, res) => {
   Product.find()
     .then((result) => {
@@ -71,7 +78,7 @@ const getProducts = async (req, res) => {
     });
 };
 
-const getProductsByCategory = async (req, res) => {
+/* const getProductsByCategory = async (req, res) => {
   const { category } = req.query;
 
   console.log("/GET products by category : ", category);
@@ -83,13 +90,11 @@ const getProductsByCategory = async (req, res) => {
     .catch((error) => {
       return res.status(500).json({ error });
     });
-};
+}; */
 
 const getProductsById = async (req, res) => {
   // console.log(req);
   const { id } = req.params;
-
-  console.log("/GET products by id : ", id);
 
   Product.findById(id)
     .then((result) => {
@@ -106,4 +111,5 @@ module.exports = {
   getProductsByCategory,
   getProducts,
   getProductsById,
+  getProductsByGender,
 };

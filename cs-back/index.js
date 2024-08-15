@@ -17,11 +17,9 @@ env.config({ path: join(__dirname, "..", ".env") });
 
 mongoose.connect(
   process.env.MONGO_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false },
-  () => {
-    console.log("Connected to MongoDB");
-  }
-);
+  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
+).then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));;
 
 app.use(express.json());
 app.use(
