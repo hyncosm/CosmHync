@@ -68,6 +68,18 @@ const getProductsByGender = async (req, res) => {
    
 };
 
+const getProductsByBestSeller = async (req, res) => {
+    Product.find({ "bestSeller": "true" })
+    .then((result) => {
+      return res.status(200).json(result);
+    })
+    .catch((error) => {
+      return res.status(500).json({ error });
+    }); 
+
+   
+};
+
 const getProducts = async (req, res) => {
   Product.find()
     .then((result) => {
@@ -124,5 +136,6 @@ module.exports = {
   getProducts,
   getProductsById,
   getProductsByGender,
-  getByBestSellers
+  getByBestSellers,
+  getProductsByBestSeller
 };
