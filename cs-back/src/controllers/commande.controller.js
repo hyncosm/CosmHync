@@ -23,6 +23,17 @@ const alterCommande = async (req, res) => {
   });
 };
 
+const getAllCommandes = async (req, res) => {
+    Commande.find()
+      .then((result) => {
+        return res.status(200).json(result);
+      })
+      .catch((error) => {
+        return res.status(500).json({ error });
+      });
+  };
+
 module.exports = {
   alterCommande,
+  getAllCommandes
 };
