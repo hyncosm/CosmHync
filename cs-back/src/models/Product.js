@@ -32,7 +32,7 @@ const Product = new mongoose.Schema(
     descriptionFR: { type: String, required: false, default: "" },
     descriptionEN: { type: String, required: false, default: "" },
     descriptionAR: { type: String, required: false, default: "" },
-    bestSeller: { type: String, required: false, default: "" },
+    bestSeller: { type: String, required: false, default: "false" },
   },
   {
     versionKey: false,

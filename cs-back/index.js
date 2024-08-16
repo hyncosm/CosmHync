@@ -8,6 +8,7 @@ const {
   productRouter,
   categoryRouter,
   saleRouter,
+  commandeRouter
 } = require("./src/routes");
 const authRoute = require("./src/routes/auth");
 const bodyParser = require("body-parser");
@@ -40,6 +41,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/product", productRouter);
 app.use("/api/category", categoryRouter);
 app.use("/api/sale", saleRouter);
+app.use("/api/commande", commandeRouter);
 
 app.listen(configs.PORT, () => {
   console.log("Backend server is running! on port :", configs.PORT);

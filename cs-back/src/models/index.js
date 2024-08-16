@@ -4,6 +4,7 @@ const Group = require("./Group");
 const Product = require("./Product");
 const Image = require("./Image");
 const Sale = require("./Sale");
+const Commande = require("./Commande");
 
 module.exports = {
   User,
@@ -12,4 +13,5 @@ module.exports = {
   Product,
   Image,
   Sale,
+  Commande
 };

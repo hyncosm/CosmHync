@@ -40,9 +40,26 @@ router.post("/login", async (req, res) => {
       if (!validPassword) {
         return res.status(400).json("wrong password");
       } else {
-        delete user["mdp"];
 
-        return res.status(200).json(user);
+        return res.status(200).json(
+          {
+            name: user.name,
+            sex: user.sex,
+            tel:  user.tel,
+            mail: user.mail,
+            role: user.role,
+            interest: user.interest,
+           id: user._id,
+            address: [
+                {
+                    numero:  user.address.numero,
+                    avenue: user.address.avenue,
+                    ville: user.address.ville,
+                    codePostale: user.address.codePostale,
+                }
+            ],
+        }
+        );
       }
     }
   } catch (err) {

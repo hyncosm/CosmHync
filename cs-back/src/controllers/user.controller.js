@@ -75,6 +75,7 @@ const authenticate = (req, res) => {
 
 const addUser = async (req, res) => {
   const { body } = req;
+  console.log(body);
   return await alterUser
     .addUser(body)
     .then((response) => {
