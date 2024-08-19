@@ -50,7 +50,7 @@ const getProductsForUser = async (req, res) => {
 // };
 
 const getProductsByCategory = async (req, res) => {
-  const { categories } = req.body; // Expecting mains to be an array of main categories
+  const { categories } = req.query; // Expecting mains to be an array of main categories
 
   // Ensure mains is an array
   if (!Array.isArray(categories)) {
@@ -70,7 +70,7 @@ const getProductsByCategory = async (req, res) => {
 };
 
 const getProductsBySubCategory = async (req, res) => {
-  const { subs } = req.body; // Expecting subs to be an array of sub categories
+  const { subs } = req.query; // Expecting subs to be an array of sub categories
 
   // Ensure subs is an array
   if (!Array.isArray(subs)) {
