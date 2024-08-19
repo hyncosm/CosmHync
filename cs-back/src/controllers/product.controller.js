@@ -51,16 +51,17 @@ const getProductsForUser = async (req, res) => {
 
 const getProductsByCategory = async (req, res) => {
   const { categories } = req.query; // Expecting mains to be an array of main categories
-
+  
+  const categoriesArray = JSON.parse(categories)
   // Ensure mains is an array
-  if (!Array.isArray(categories)) {
+  if (!Array.isArray(categoriesArray)) {
     return res.status(400).json({ error: "Mains should be an array" });
   }
 
   try {
     // Query to find products where category.main matches any value in mains array
     const products = await Product.find({
-      "category.main": { $in: categories }
+      "category.main": { $in: categoriesArray }
     });
 
     return res.status(200).json(products);
@@ -72,15 +73,16 @@ const getProductsByCategory = async (req, res) => {
 const getProductsBySubCategory = async (req, res) => {
   const { subs } = req.query; // Expecting subs to be an array of sub categories
 
+  const categoriesArray = JSON.parse(subs)
   // Ensure subs is an array
-  if (!Array.isArray(subs)) {
+  if (!Array.isArray(categoriesArray)) {
     return res.status(400).json({ error: "Subs should be an array" });
   }
 
   try {
     // Query to find products where category.sub matches any value in subs array
     const products = await Product.find({
-      "category.sub": { $in: subs }
+      "category.sub": { $in: categoriesArray }
     });
 
     return res.status(200).json(products);
