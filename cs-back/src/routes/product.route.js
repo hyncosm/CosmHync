@@ -9,5 +9,6 @@ router.get("/user/:userId", productController.getProductsForUser);
 router.get("/category", productController.getProductsByCategory);
 router.get("/gender", productController.getProductsByGender);
 router.get("/bestSeller", productController.getProductsByBestSeller);
+router.get("/subcategory", productController.getProductsBySubCategory);
 
 module.exports = router;

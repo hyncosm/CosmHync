@@ -6,7 +6,7 @@ const Commande = new mongoose.Schema(
     prenom: { type: String, required: false, default: "" },
     email: { type: String, required: false, default: "" },
     city: { type: String, required: false, default: "" },
-    product: { type: String, required: false, default: "" },
+    product: { type: mongoose.Schema.Types.Mixed, required: false, default: "" },
     adresse: { type: String, required: false, default: "" },
     tel: { type: String, required: false, default: "" },
     status: { type: String, required: false, default: "PENDIND" },

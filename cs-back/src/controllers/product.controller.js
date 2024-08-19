@@ -37,16 +37,56 @@ const getProductsForUser = async (req, res) => {
     });
 };
 
-const getProductsByCategory = async (req, res) => {
-  const { category } = req.body;
+// const getProductsByCategory = async (req, res) => {
+//   const { category } = req.body;
 
-  Product.find({ "category": category })
-    .then((result) => {
-      return res.status(200).json(result);
-    })
-    .catch((error) => {
-      return res.status(500).json({ error });
+//   Product.find({ "category": category })
+//     .then((result) => {
+//       return res.status(200).json(result);
+//     })
+//     .catch((error) => {
+//       return res.status(500).json({ error });
+//     });
+// };
+
+const getProductsByCategory = async (req, res) => {
+  const { categories } = req.body; // Expecting mains to be an array of main categories
+
+  // Ensure mains is an array
+  if (!Array.isArray(categories)) {
+    return res.status(400).json({ error: "Mains should be an array" });
+  }
+
+  try {
+    // Query to find products where category.main matches any value in mains array
+    const products = await Product.find({
+      "category.main": { $in: categories }
     });
+
+    return res.status(200).json(products);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+const getProductsBySubCategory = async (req, res) => {
+  const { subs } = req.body; // Expecting subs to be an array of sub categories
+
+  // Ensure subs is an array
+  if (!Array.isArray(subs)) {
+    return res.status(400).json({ error: "Subs should be an array" });
+  }
+
+  try {
+    // Query to find products where category.sub matches any value in subs array
+    const products = await Product.find({
+      "category.sub": { $in: subs }
+    });
+
+    return res.status(200).json(products);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
 };
 
 const getProductsByGender = async (req, res) => {
@@ -137,5 +177,6 @@ module.exports = {
   getProductsById,
   getProductsByGender,
   getByBestSellers,
-  getProductsByBestSeller
+  getProductsByBestSeller,
+  getProductsBySubCategory
 };

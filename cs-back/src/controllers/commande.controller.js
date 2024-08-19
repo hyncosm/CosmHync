@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
-const { Commande } = require("../models");
+const { Commande, Product } = require("../models");
 
 const alterCommande = async (req, res) => {
   const { commande } = req.body;
-  console.log("commande : ", commande);
 
   const query = {
       _id: mongoose.Types.ObjectId(commande._id),
@@ -24,13 +23,35 @@ const alterCommande = async (req, res) => {
 };
 
 const getAllCommandes = async (req, res) => {
-    Commande.find()
-      .then((result) => {
-        return res.status(200).json(result);
-      })
-      .catch((error) => {
-        return res.status(500).json({ error });
-      });
+    try {
+      // Fetch all commandes
+      const commandes = await Commande.find();
+  
+      // Map over commandes and fetch product details
+      const updatedCommandes = await Promise.all(commandes.map(async (commande) => {
+        try {
+          // Fetch the product details
+          const product = await Product.findById(commande.product);
+          if (product) {
+            // Update the commande with product details
+            commande.product = product;
+          } else {
+            // Handle case where product is not found
+            commande.product = null; // or handle as appropriate
+          }
+        } catch (err) {
+          console.error('Error fetching product:', err);
+          // Handle specific error, possibly set product to null or handle accordingly
+          commande.product = null;
+        }
+        return commande;
+      }));
+  
+      // Send the updated commandes as a response
+      return res.status(200).json(updatedCommandes);
+    } catch (error) {
+      return res.status(500).json({ error });
+    }
   };
 
 module.exports = {

@@ -20,6 +20,7 @@ const alterUsers = (req, res) => {
 };
 
 const authenticate = (req, res) => {
+  console.log(req.body)
   Users.findOne({ mail: req.body.mail }, function (err, user) {
     if (!user) {
       return res
@@ -84,7 +85,6 @@ const addUser = async (req, res) => {
       tel:  user.tel,
       mail: user?.mail,
       role: user.role,
-      interest: user.interest,
      id: user._id,
       address: [
           {

@@ -8,8 +8,8 @@ const Product = new mongoose.Schema(
     pictures: [{ type: String, required: false, default: "" }],
     video: { type: String, required: false, default: "" },
     category: {
-      main: { type: String, required: false, default: "Product" },
-      sub: { type: String, required: false, default: "Product" },
+      main: { type: String, required: false, default: "Cosmetics" },
+      sub: { type: String, required: false, default: "Hair" },
     },
     owner: {
       id: { type: String, required: false, default: "" },

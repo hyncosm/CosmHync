@@ -13,7 +13,8 @@ router.post("/register", async (req, res) => {
       name: req.body.username,
       mail: req.body.email,
       mdp: hashedPassword,
-      role: req.body.role,
+      role: "CLIENT",
+      // role: req.body.role,
     });
 
     //save user and respond
