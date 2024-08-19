@@ -50,18 +50,18 @@ const getProductsForUser = async (req, res) => {
 // };
 
 const getProductsByCategory = async (req, res) => {
-  const { categories } = req.query; // Expecting mains to be an array of main categories
+  const { categories } = req.params; // Expecting mains to be an array of main categories
   
-  const categoriesArray = JSON.parse(categories)
+  // const categoriesArray = JSON.parse(categories)
   // Ensure mains is an array
-  if (!Array.isArray(categoriesArray)) {
+  if (!Array.isArray(categories)) {
     return res.status(400).json({ error: "Mains should be an array" });
   }
 
   try {
     // Query to find products where category.main matches any value in mains array
     const products = await Product.find({
-      "category.main": { $in: categoriesArray }
+      "category.main": { $in: categories }
     });
 
     return res.status(200).json(products);
@@ -71,18 +71,18 @@ const getProductsByCategory = async (req, res) => {
 };
 
 const getProductsBySubCategory = async (req, res) => {
-  const { subs } = req.query; // Expecting subs to be an array of sub categories
+  const { subs } = req.params; // Expecting subs to be an array of sub categories
 
-  const categoriesArray = JSON.parse(subs)
+  // const categoriesArray = JSON.parse(subs)
   // Ensure subs is an array
-  if (!Array.isArray(categoriesArray)) {
+  if (!Array.isArray(subs)) {
     return res.status(400).json({ error: "Subs should be an array" });
   }
 
   try {
     // Query to find products where category.sub matches any value in subs array
     const products = await Product.find({
-      "category.sub": { $in: categoriesArray }
+      "category.sub": { $in: subs }
     });
 
     return res.status(200).json(products);
@@ -92,7 +92,7 @@ const getProductsBySubCategory = async (req, res) => {
 };
 
 const getProductsByGender = async (req, res) => {
-  const { gender } = req.query;
+  const { gender } = req.params;
   console.log("----------------------",gender);
 
   if(gender) {
