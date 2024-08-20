@@ -5,36 +5,34 @@ const bcrypt = require("bcrypt");
 //REGISTER
 router.post("/register", async (req, res) => {
   try {
+    console.log('===> register')
+
     //generate new password
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    //create new user
+    const hashedPassword = await bcrypt.hash(req.body.mdp, salt);
     const newUser = new User({
-      name: req.body.username,
-      mail: req.body.email,
+      name: req.body.name,
+      mail: req.body.mail,
+      tel: req.body.tel,
       mdp: hashedPassword,
+      sex: req.body.sex,
+      address: req.body.address,
       role: "CLIENT",
-      // role: req.body.role,
     });
-
     //save user and respond
     const user = await newUser.save();
-    console.log(user);
     res.status(200).json(user);
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
 
 //LOGIN
 router.post("/login", async (req, res) => {
-  console.log("/POST /login");
   try {
     const user = await User.findOne({ mail: req.body.email });
-    // !user && res.status(404).json("user not found");
-
     if (!user) {
-      console.log("!user : ", user);
       return res.status(404).json("user not found");
     } else {
       const validPassword = await bcrypt.compare(req.body.password, user.mdp);
@@ -46,25 +44,17 @@ router.post("/login", async (req, res) => {
           {
             name: user.name,
             sex: user.sex,
-            tel:  user.tel,
+            tel: user.tel,
             mail: user.mail,
             role: user.role,
             interest: user.interest,
-           id: user._id,
-            address: [
-                {
-                    numero:  user.address.numero,
-                    avenue: user.address.avenue,
-                    ville: user.address.ville,
-                    codePostale: user.address.codePostale,
-                }
-            ],
-        }
+            id: user._id,
+            address: user.address
+          }
         );
       }
     }
   } catch (err) {
-    console.log("Error :: ", err);
     return res.status(500).json(err);
   }
 });

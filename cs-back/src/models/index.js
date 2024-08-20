@@ -3,7 +3,6 @@ const Category = require("./Category");
 const Group = require("./Group");
 const Product = require("./Product");
 const Image = require("./Image");
-const Sale = require("./Sale");
 const Commande = require("./Commande");
 
 module.exports = {
@@ -12,6 +11,5 @@ module.exports = {
   Group,
   Product,
   Image,
-  Sale,
   Commande
 };
