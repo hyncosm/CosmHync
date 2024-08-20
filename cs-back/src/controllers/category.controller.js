@@ -22,7 +22,6 @@ const alterCategory = async (req, res) => {
 };
 
 const getCategories = async (req, res) => {
-  console.log("/GET categories");
   Category.find(function (error, result) {
     if (error) {
       console.log("An error occured : ", error);

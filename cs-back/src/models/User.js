@@ -8,18 +8,10 @@ const User = new mongoose.Schema(
     sex: { type: String, required: false, default: "" },
     tel: { type: String, required: false, default: "" },
     mail: { type: String, required: false, default: "" },
-    address: [
-      {
-        numero: { type: Number, required: false, default: 0 },
-        avenue: { type: String, required: false, default: "" },
-        ville: { type: String, required: false, default: "" },
-        codePostale: { type: String, required: false, default: "" },
-      },
-    ],
+    address: { type: String, required: false, default: "" },
+    city: { type: String, required: false, default: "" },
     mdp: { type: String, required: false, default: "" },
-    role: { type: String, required: false, default: "CLIENT" },
-    interest: [{ type: String, required: false }],
-    source: { type: String, required: false, default: "" },
+    role: { type: String, required: false, default: "CLIENT" }
   },
   {
     versionKey: false,

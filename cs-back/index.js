@@ -7,10 +7,9 @@ const {
   userRouter,
   productRouter,
   categoryRouter,
-  saleRouter,
-  commandeRouter
+  commandeRouter,
+  authRouter
 } = require("./src/routes");
-const authRoute = require("./src/routes/auth");
 const bodyParser = require("body-parser");
 const { join } = require("path");
 const env = require("dotenv");
@@ -36,11 +35,10 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.use("/users", userRouter);
-app.use("/api/auth", authRoute);
+app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
 app.use("/api/product", productRouter);
 app.use("/api/category", categoryRouter);
-app.use("/api/sale", saleRouter);
 app.use("/api/commande", commandeRouter);
 
 app.listen(configs.PORT, () => {
