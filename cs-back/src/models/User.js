@@ -11,7 +11,7 @@ const User = new mongoose.Schema(
     address: { type: String, required: false, default: "" },
     city: { type: String, required: false, default: "" },
     mdp: { type: String, required: false, default: "" },
-    role: { type: String, required: false, default: "CLIENT" }
+    role: { type: String, required: false, enum: ['CLIENT', 'ADMIN', 'SOUS_ADMIN'], default: "CLIENT" }
   },
   {
     versionKey: false,
