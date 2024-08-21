@@ -54,7 +54,79 @@ const getAllCommandes = async (req, res) => {
     }
   };
 
+  const confirmCommande = async (req, res) => {
+    try {
+      // Extract the commande ID from the request body
+      const { id } = req.body;
+  
+      // Find the commande by ID and update its status
+      const updatedCommande = await Commande.findByIdAndUpdate(
+        id,
+        { status: 'CONFIRMED' },
+        { new: true } // Return the updated document
+      );
+  
+      // Check if the commande was found
+      if (!updatedCommande) {
+        return res.status(404).json({ message: 'Commande not found' });
+      }
+  
+      // Respond with the updated commande
+      res.status(200).json(updatedCommande);
+    } catch (error) {
+      console.error('Error confirming commande:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  
+  }
+
+  const cancelCommande = async (req, res) => {
+    try {
+      const { id } = req.body;
+  
+      const updatedCommande = await Commande.findByIdAndUpdate(
+        id,
+        { status: 'CANCELED' },
+        { new: true } // Return the updated document
+      );
+  
+      if (!updatedCommande) {
+        return res.status(404).json({ message: 'Commande not found' });
+      }
+  
+      res.status(200).json(updatedCommande);
+    } catch (error) {
+      console.error('Error canceling commande:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  
+  }
+
+  const shipCommande = async (req, res) => {
+    try {
+      const { id } = req.body;
+  
+      const updatedCommande = await Commande.findByIdAndUpdate(
+        id,
+        { status: 'SHIPPED' },
+        { new: true } // Return the updated document
+      );
+  
+      if (!updatedCommande) {
+        return res.status(404).json({ message: 'Commande not found' });
+      }
+  
+      res.status(200).json(updatedCommande);
+    } catch (error) {
+      console.error('Error shipping commande:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  }
+
 module.exports = {
   alterCommande,
-  getAllCommandes
+  getAllCommandes,
+  confirmCommande,
+  cancelCommande,
+  shipCommande
 };
