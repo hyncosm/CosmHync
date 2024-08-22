@@ -8,6 +8,7 @@ router.post("/add", productController.alterProduct);
 router.get("/all", productController.getProducts);
 router.get("/one/:id", productController.getProductsById);
 router.get("/bestSeller", productController.getProductsByBestSeller);
+router.get("/brands", productController.getProductOwners);
 
 
 module.exports = router;
