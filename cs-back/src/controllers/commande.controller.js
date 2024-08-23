@@ -25,7 +25,12 @@ const alterCommande = async (req, res) => {
 const getAllCommandes = async (req, res) => {
   try {
     // Fetch all commandes
-    const commandes = await Commande.find();
+    const { status } = req.query
+    let query = {};
+    if (status) {
+      query["status"] = status;
+    }
+    const commandes = await Commande.find(query);
 
     // Map over commandes and fetch product details
     const updatedCommandes = await Promise.all(commandes.map(async (commande) => {

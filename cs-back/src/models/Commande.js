@@ -9,7 +9,7 @@ const Commande = new mongoose.Schema(
     product: { type: mongoose.Schema.Types.Mixed, required: false, default: "" },
     adresse: { type: String, required: false, default: "" },
     tel: { type: String, required: false, default: "" },
-    status: { type: String, required: false,enum:['PENDING','CONFIRMED', 'SHIPPED'], default: "PENDING" },
+    status: { type: String, required: false, enum:['PENDING','CONFIRMED', 'SHIPPED', 'CANCELED'], default: "PENDING" },
   },
   {
     versionKey: false,
