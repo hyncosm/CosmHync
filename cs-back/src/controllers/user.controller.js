@@ -18,7 +18,6 @@ const alterUsers = (req, res) => {
 };
 
 const getById = (req, res) => {
-  console.log('getById', req)
   Users.findOne({ _id: req.params.id }, function (err, user) {
     if (!user) {
       return res

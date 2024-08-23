@@ -32,8 +32,8 @@ const alterProduct = async (req, res) => {
   console.log("Product : ", product);
 
   const query = {
-      _id: mongoose.Types.ObjectId(product._id),
-    },
+    _id: mongoose.Types.ObjectId(product._id),
+  },
     update = product,
     options = {
       upsert: true,
@@ -60,13 +60,46 @@ const getProductsByBestSeller = async (req, res) => {
 };
 
 const getProducts = async (req, res) => {
-  Product.find()
-    .then((result) => {
-      return res.status(200).json(result);
-    })
-    .catch((error) => {
-      return res.status(500).json({ error });
-    });
+  try {
+    console.log(req.query)
+    const { limit, page, categorie, inputSearch, sex, marque } = req.query;
+    
+    let query = {};
+    if (inputSearch) {
+      query["owner.name"] = { $regex: inputSearch, $options: "i" };
+    }
+    if (categorie) {
+      query["category.main"] = categorie;
+    }
+    if (marque) {
+      query["owner.name"] = marque;
+    }
+    if (sex) {
+      query["genders"] = sex;
+    }
+    const _page = parseInt(page)
+    const _limit = parseInt(limit)
+    const total = await Product.countDocuments(query);
+    const pages = Math.floor(total / _limit);
+
+    Product.find(query)
+      .limit(_limit)        // Limit the results to 10 posts per page
+      .skip((_page - 1) * _limit)
+      .then((result) => {
+        return res.status(200).json({
+          result, 
+          pagination: {
+            total,    // Total number of posts
+            page,
+            pages
+          }
+        });
+      })
+      .catch((error) => {
+        console.log(error)
+        return res.status(500).json({ error });
+      });
+  } catch (error) { console.log(error) }
 };
 
 const getProductsById = async (req, res) => {
@@ -85,7 +118,7 @@ const getProductsById = async (req, res) => {
 const getProductOwners = async (req, res) => {
   try {
     const uniqueOwnerNames = await Product.aggregate([
-      { $group: { _id: "$owner.name" } }, 
+      { $group: { _id: "$owner.name" } },
       { $project: { _id: 0, name: "$_id" } },
     ]);
 
