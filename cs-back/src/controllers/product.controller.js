@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { Product } = require("../models");
+const { ObjectId } = require("mongodb");
 
 const getProductsByFilter = async (req, res) => {
   try {
@@ -61,7 +62,6 @@ const getProductsByBestSeller = async (req, res) => {
 
 const getProducts = async (req, res) => {
   try {
-    console.log(req.query)
     const { limit, page, categorie, inputSearch, sex, marque } = req.query;
     
     let query = {};
@@ -132,11 +132,27 @@ const getProductOwners = async (req, res) => {
   }
 };
 
+const deleteProduct = async (req, res) => {
+  const { id } = req.body;
+
+  Product.deleteOne({
+    _id: new ObjectId(id),
+  }).then(result => {
+    console.log("Product deleted!");
+    return res.status(200).json('deleted');
+  })
+  .catch(err => {
+    console.log("Error while deleting ", err);
+    res.status(500).json(err);
+  });
+};
+
 module.exports = {
   getProductsByFilter,
   alterProduct,
   getProducts,
   getProductsById,
   getProductsByBestSeller,
-  getProductOwners
+  getProductOwners,
+  deleteProduct
 };

@@ -9,6 +9,7 @@ router.get("/all", productController.getProducts);
 router.get("/one/:id", productController.getProductsById);
 router.get("/bestSeller", productController.getProductsByBestSeller);
 router.get("/brands", productController.getProductOwners);
+router.post("/delete", productController.deleteProduct);
 
 
 module.exports = router;
