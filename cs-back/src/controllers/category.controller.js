@@ -2,13 +2,15 @@ const mongoose = require("mongoose");
 const { Category } = require("../models");
 
 const alterCategory = async (req, res) => {
-  const { category } = req.body;
+  console.log(req.query, req.params, req.body ) 
+  const { descAR, descFR, descEN, nameAR, nameFR, nameEN, subs } = req.body;
+  const { id } = req.params;
   const query = {
-      _id: mongoose.Types.ObjectId(category._id),
-    },
-    update = category,
+    _id: mongoose.Types.ObjectId(id),
+  },
+    update = { descAR, descFR, descEN, nameAR, nameFR, nameEN, subs },
     options = {
-      upsert: true,
+      upsert: false,
       new: true,
     };
   Category.findOneAndUpdate(query, update, options, function (error, result) {
@@ -21,6 +23,35 @@ const alterCategory = async (req, res) => {
   });
 };
 
+const deleteCategory = async (req, res) => {
+  Category.deleteOne({ _id: req.params.id }, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      return res.status(200).json('Document deleted');
+    }
+  });
+}
+
+const newCategory = async (req, res) => {
+  const { descAR, descFR, descEN, nameAR, nameFR, nameEN, subs } = req.body;
+  try {
+    const newCategory = new Category({
+      nameAR,
+      descAR,
+      nameFR,
+      descFR,
+      nameEN,
+      descEN,
+      subs
+    });
+    const category = await newCategory.save();
+    res.status(200).json(category);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
 const getCategories = async (req, res) => {
   Category.find(function (error, result) {
     if (error) {
@@ -29,10 +60,12 @@ const getCategories = async (req, res) => {
     } else {
       return res.status(200).json(result);
     }
-  });
+  }).sort({ createdAt: -1 });
 };
 
 module.exports = {
+  deleteCategory,
+  newCategory,
   alterCategory,
   getCategories,
 };

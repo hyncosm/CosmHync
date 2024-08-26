@@ -22,13 +22,7 @@ const Product = new mongoose.Schema(
     sales: { type: Number, required: false, default: 0 },
     discount: { type: Number, required: false, default: 0 },
     genders: [{ type: String, required: false, default: "female" }],
-    comments: [
-      {
-        username: { type: String, required: false, default: "" },
-        message: { type: String, required: false, default: "" },
-      },
-    ],
-    support: { type: Number, required: false, default: 0 },
+    quantity: { type: Number, required: false, default: 0 },
     descriptionFR: { type: String, required: false, default: "" },
     descriptionEN: { type: String, required: false, default: "" },
     descriptionAR: { type: String, required: false, default: "" },
@@ -38,7 +32,6 @@ const Product = new mongoose.Schema(
     versionKey: false,
     timestamps: true,
     id: true,
-    //toJSON,
   }
 );
 

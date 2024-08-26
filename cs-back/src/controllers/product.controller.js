@@ -1,6 +1,16 @@
 const mongoose = require("mongoose");
 const { Product } = require("../models");
 
+const deleteProduct = async (req, res) => {
+  Product.deleteOne({ _id: req.params.id }, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      return res.status(200).json('Document deleted');
+    }
+  });
+}
+
 const getProductsByFilter = async (req, res) => {
   try {
     const { main_categories, sub_categories, gender, marques } = req.query;
@@ -17,7 +27,7 @@ const getProductsByFilter = async (req, res) => {
     if (gender) {
       query["genders"] = { $in: [gender] };
     }
-    const products = await Product.find(query);
+    const products = await Product.find(query).sort({ createdAt: -1 });
     res.status(200).json(products);
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -50,7 +60,7 @@ const alterProduct = async (req, res) => {
 };
 
 const getProductsByBestSeller = async (req, res) => {
-  Product.find({ bestSeller: "true" })
+  Product.find({ bestSeller: "true" }).sort({ createdAt: -1 })
     .then((result) => {
       return res.status(200).json(result);
     })
@@ -61,9 +71,8 @@ const getProductsByBestSeller = async (req, res) => {
 
 const getProducts = async (req, res) => {
   try {
-    console.log(req.query)
     const { limit, page, categorie, inputSearch, sex, marque } = req.query;
-    
+
     let query = {};
     if (inputSearch) {
       query["owner.name"] = { $regex: inputSearch, $options: "i" };
@@ -85,9 +94,10 @@ const getProducts = async (req, res) => {
     Product.find(query)
       .limit(_limit)        // Limit the results to 10 posts per page
       .skip((_page - 1) * _limit)
+      .sort({ createdAt: -1 })
       .then((result) => {
         return res.status(200).json({
-          result, 
+          result,
           pagination: {
             total,    // Total number of posts
             page,
@@ -103,9 +113,7 @@ const getProducts = async (req, res) => {
 };
 
 const getProductsById = async (req, res) => {
-  // console.log(req);
   const { id } = req.params;
-
   Product.findById(id)
     .then((result) => {
       return res.status(200).json(result);
@@ -122,9 +130,7 @@ const getProductOwners = async (req, res) => {
       { $project: { _id: 0, name: "$_id" } },
     ]);
 
-    // Extract only the names from the results
     const ownerNames = uniqueOwnerNames.map((owner) => owner.name);
-
     res.status(200).json(ownerNames);
   } catch (error) {
     console.error("Error fetching unique owner names:", error);
@@ -138,5 +144,6 @@ module.exports = {
   getProducts,
   getProductsById,
   getProductsByBestSeller,
-  getProductOwners
+  getProductOwners,
+  deleteProduct
 };
