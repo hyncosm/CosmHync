@@ -7,9 +7,11 @@ const {
   userRouter,
   productRouter,
   categoryRouter,
+  brandRouter,
   commandeRouter,
   authRouter
 } = require("./src/routes");
+
 const bodyParser = require("body-parser");
 const { join } = require("path");
 const env = require("dotenv");
@@ -39,6 +41,7 @@ app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/product", productRouter);
 app.use("/api/category", categoryRouter);
+app.use("/api/brand", brandRouter);
 app.use("/api/commande", commandeRouter);
 
 app.listen(configs.PORT, () => {

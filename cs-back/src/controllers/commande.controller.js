@@ -30,7 +30,7 @@ const getAllCommandes = async (req, res) => {
     if (status) {
       query["status"] = status;
     }
-    const commandes = await Commande.find(query);
+    const commandes = await Commande.find(query).sort({ createdAt: -1 });
 
     // Map over commandes and fetch product details
     const updatedCommandes = await Promise.all(commandes.map(async (commande) => {
