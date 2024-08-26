@@ -2,15 +2,6 @@ const mongoose = require("mongoose");
 const { Product } = require("../models");
 const { ObjectId } = require("mongodb");
 
-// const deleteProduct = async (req, res) => {
-//   Product.deleteOne({ _id: req.params.id }, (err) => {
-//     if (err) {
-//       console.error(err);
-//     } else {
-//       return res.status(200).json('Document deleted');
-//     }
-//   });
-// }
 
 const getProductsByFilter = async (req, res) => {
   try {
