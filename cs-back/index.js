@@ -27,30 +27,30 @@ app.use(express.json());
 
 //for dev 
 
-// app.use(
-//   cors({
-//     origin: "*",
-//   })
-// );
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 //for prod
 
-const allowedOrigins = [
-  'https://www.coaching-elegance.com',
-  'https://coaching-elegance.com'
-];
+// const allowedOrigins = [
+//   'https://www.coaching-elegance.com',
+//   'https://coaching-elegance.com'
+// ];
 
-app.use(cors({
-  origin: function(origin, callback) {
-      if (allowedOrigins.includes(origin) || !origin) {
-          callback(null, true);
-      } else {
-          callback(new Error('Not allowed by CORS'));
-      }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+// app.use(cors({
+//   origin: function(origin, callback) {
+//       if (allowedOrigins.includes(origin) || !origin) {
+//           callback(null, true);
+//       } else {
+//           callback(new Error('Not allowed by CORS'));
+//       }
+//   },
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+// }));
 
 app.use(
   bodyParser.urlencoded({
