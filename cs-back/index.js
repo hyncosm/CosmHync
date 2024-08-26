@@ -24,11 +24,22 @@ mongoose.connect(
 .catch(err => console.error('MongoDB connection error:', err));;
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+
+//for dev 
+
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// );
+
+//for prod
+
+app.use(cors({
+  origin: 'https://www.coaching-elegance.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 app.use(
   bodyParser.urlencoded({
