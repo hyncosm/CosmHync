@@ -1,15 +1,16 @@
 const mongoose = require("mongoose");
 const { Product } = require("../models");
+const { ObjectId } = require("mongodb");
 
-const deleteProduct = async (req, res) => {
-  Product.deleteOne({ _id: req.params.id }, (err) => {
-    if (err) {
-      console.error(err);
-    } else {
-      return res.status(200).json('Document deleted');
-    }
-  });
-}
+// const deleteProduct = async (req, res) => {
+//   Product.deleteOne({ _id: req.params.id }, (err) => {
+//     if (err) {
+//       console.error(err);
+//     } else {
+//       return res.status(200).json('Document deleted');
+//     }
+//   });
+// }
 
 const getProductsByFilter = async (req, res) => {
   try {
@@ -137,7 +138,20 @@ const getProductOwners = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+const deleteProduct = async (req, res) => {
+  const { id } = req.body;
 
+  Product.deleteOne({
+    _id: new ObjectId(id),
+  }).then(result => {
+    console.log("Product deleted!");
+    return res.status(200).json('deleted');
+  })
+  .catch(err => {
+    console.log("Error while deleting ", err);
+    res.status(500).json(err);
+  });
+};
 module.exports = {
   getProductsByFilter,
   alterProduct,
