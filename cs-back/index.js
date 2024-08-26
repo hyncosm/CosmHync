@@ -35,8 +35,19 @@ app.use(express.json());
 
 //for prod
 
+const allowedOrigins = [
+  'https://www.coaching-elegance.com',
+  'https://coaching-elegance.com'
+];
+
 app.use(cors({
-  origin: 'https://www.coaching-elegance.com',
+  origin: function(origin, callback) {
+      if (allowedOrigins.includes(origin) || !origin) {
+          callback(null, true);
+      } else {
+          callback(new Error('Not allowed by CORS'));
+      }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
