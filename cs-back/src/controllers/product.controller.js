@@ -139,21 +139,6 @@ const getProductOwners = async (req, res) => {
   }
 };
 
-const deleteProduct = async (req, res) => {
-  const { id } = req.body;
-
-  Product.deleteOne({
-    _id: new ObjectId(id),
-  }).then(result => {
-    console.log("Product deleted!");
-    return res.status(200).json('deleted');
-  })
-  .catch(err => {
-    console.log("Error while deleting ", err);
-    res.status(500).json(err);
-  });
-};
-
 module.exports = {
   getProductsByFilter,
   alterProduct,

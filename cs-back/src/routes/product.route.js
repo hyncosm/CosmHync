@@ -10,7 +10,5 @@ router.get("/one/:id", productController.getProductsById);
 router.post("/delete/:id", productController.deleteProduct);
 router.get("/bestSeller", productController.getProductsByBestSeller);
 router.get("/brands", productController.getProductOwners);
-router.post("/delete", productController.deleteProduct);
-
 
 module.exports = router;
