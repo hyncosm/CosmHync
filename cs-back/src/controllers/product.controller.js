@@ -23,7 +23,7 @@ const getProductsByFilter = async (req, res) => {
       query["category.sub"] = { $in: sub_categories };
     }
     if (marques) {
-      query["owner.name"] = { $in: marques };
+      query["brand"] = { $in: marques };
     }
     if (gender) {
       query["genders"] = { $in: [gender] };
@@ -72,7 +72,7 @@ const getProductsByBestSeller = async (req, res) => {
 
 const getProducts = async (req, res) => {
   try {
-    const { limit, page, categorie, inputSearch, sex, marque } = req.query;
+    const { limit, page, categorie, subCategorie, inputSearch, sex, marque } = req.query;
 
     let query = {};
     if (inputSearch) {
@@ -80,6 +80,9 @@ const getProducts = async (req, res) => {
     }
     if (categorie) {
       query["category.main"] = categorie;
+    }
+    if (subCategorie) {
+      query["category.sub"] = subCategorie;
     }
     if (marque) {
       query["owner.name"] = marque;

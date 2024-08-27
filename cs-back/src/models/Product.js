@@ -11,10 +11,7 @@ const Product = new mongoose.Schema(
       main: { type: String, required: false, default: "Cosmetics" },
       sub: { type: String, required: false, default: "Hair" },
     },
-    owner: {
-      id: { type: String, required: false, default: "" },
-      name: { type: String, required: false, default: "" },
-    },
+    brand: { type: String, required: false, default: "" },
     price: { type: Number, required: false, default: 0 },
     currency: { type: String, required: false, default: "MAD" },
     oldPrice: { type: Number, required: false, default: 0 },

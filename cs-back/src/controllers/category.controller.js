@@ -3,12 +3,12 @@ const { Category } = require("../models");
 
 const alterCategory = async (req, res) => {
   console.log(req.query, req.params, req.body ) 
-  const { descAR, descFR, descEN, nameAR, nameFR, nameEN, subs } = req.body;
+  const { banner, descAR, descFR, descEN, nameAR, nameFR, nameEN, subs } = req.body;
   const { id } = req.params;
   const query = {
     _id: mongoose.Types.ObjectId(id),
   },
-    update = { descAR, descFR, descEN, nameAR, nameFR, nameEN, subs },
+    update = { banner, descAR, descFR, descEN, nameAR, nameFR, nameEN, subs },
     options = {
       upsert: false,
       new: true,
@@ -34,9 +34,10 @@ const deleteCategory = async (req, res) => {
 }
 
 const newCategory = async (req, res) => {
-  const { descAR, descFR, descEN, nameAR, nameFR, nameEN, subs } = req.body;
+  const { banner, descAR, descFR, descEN, nameAR, nameFR, nameEN, subs } = req.body;
   try {
     const newCategory = new Category({
+      banner,
       nameAR,
       descAR,
       nameFR,

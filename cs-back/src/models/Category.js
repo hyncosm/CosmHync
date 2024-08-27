@@ -15,6 +15,8 @@ const Category = new mongoose.Schema(
     descFR: { type: String, required: true },
     descEN: { type: String, required: true },
 
+    banner: { type: String, required: true },
+
     subs: [{ type: subCategories, required: false  }],
   },
   {

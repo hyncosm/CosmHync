@@ -2,15 +2,14 @@ const mongoose = require("mongoose");
 const { Brand } = require("../models");
 
 const alterBrand = async (req, res) => {
-    const { brand } = req.body;
     const query = {
-        _id: mongoose.Types.ObjectId(brand._id),
+        _id: req.body._id
     },
-        update = brand,
-        options = {
-            upsert: true,
-            new: true,
-        };
+    update = req.body,
+    options = {
+        upsert: true,
+        new: true,
+    };
     Brand.findOneAndUpdate(query, update, options, function (error, result) {
         if (error) {
             console.log("An error occured : ", error);
