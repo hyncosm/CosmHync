@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const rateLimit = require('express-rate-limit');
 const cors = require("cors");
 const configs = require("./config");
 const {
@@ -25,6 +26,16 @@ mongoose.connect(
 
 app.use(express.json());
 
+// Define the rate limiter
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.',
+});
+
+// Apply the rate limiter to all requests
+app.use(limiter);
+
 //for dev 
 
 app.use(
@@ -45,6 +56,7 @@ app.use(
 //       if (allowedOrigins.includes(origin) || !origin) {
 //           callback(null, true);
 //       } else {
+//           console.error(`CORS error: Origin ${origin} not allowed`);
 //           callback(new Error('Not allowed by CORS'));
 //       }
 //   },
