@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Category } = require("../models");
 
 const alterCategory = async (req, res) => {
-  console.log(req.query, req.params, req.body ) 
+  console.log("/UPDATE category")
   const { banner, descAR, descFR, descEN, nameAR, nameFR, nameEN, subs } = req.body;
   const { id } = req.params;
   const query = {
@@ -24,6 +24,7 @@ const alterCategory = async (req, res) => {
 };
 
 const deleteCategory = async (req, res) => {
+  console.log("/DELETE category")
   Category.deleteOne({ _id: req.params.id }, (err) => {
     if (err) {
       console.error(err);
@@ -34,6 +35,7 @@ const deleteCategory = async (req, res) => {
 }
 
 const newCategory = async (req, res) => {
+  console.log("/POST category")
   const { banner, descAR, descFR, descEN, nameAR, nameFR, nameEN, subs } = req.body;
   try {
     const newCategory = new Category({
@@ -54,6 +56,7 @@ const newCategory = async (req, res) => {
 };
 
 const getCategories = async (req, res) => {
+  console.log("/GET categories")
   Category.find(function (error, result) {
     if (error) {
       console.log("An error occured : ", error);

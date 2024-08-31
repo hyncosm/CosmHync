@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { Brand } = require("../models");
 
 const alterBrand = async (req, res) => {
+    console.log("/UPDATE brand")
     const query = {
         _id: req.body._id
     },
@@ -21,6 +22,7 @@ const alterBrand = async (req, res) => {
 };
 
 const deleteBrand = async (req, res) => {
+    console.log("/DELETE brand")
     Brand.deleteOne({ _id: req.params.id }, (err) => {
         if (err) {
             console.error(err);
@@ -31,6 +33,7 @@ const deleteBrand = async (req, res) => {
 }
 
 const newBrand = async (req, res) => {
+    console.log("/POST brand")
     const { name, logo } = req.body;
     try {
         const newBrand = new Brand({
@@ -44,6 +47,7 @@ const newBrand = async (req, res) => {
 };
 
 const getBrands = async (req, res) => {
+    console.log("/GET brands")
     Brand.find(function (error, result) {
         if (error) {
             console.log("An error occured : ", error);

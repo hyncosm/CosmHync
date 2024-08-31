@@ -3,6 +3,7 @@ const { Product } = require("../models");
 const { ObjectId } = require("mongodb");
 
 const deleteProduct = async (req, res) => {
+  console.log("/DELETE product")
   Product.deleteOne({ _id: req.params.id }, (err) => {
     if (err) {
       console.error(err);
@@ -13,6 +14,7 @@ const deleteProduct = async (req, res) => {
 }
 
 const getProductsByFilter = async (req, res) => {
+  console.log("/GET product by filter")
   try {
     const { main_categories, sub_categories, gender, marques } = req.query;
     let query = {};
@@ -39,8 +41,8 @@ const getProductsByFilter = async (req, res) => {
 };
 
 const alterProduct = async (req, res) => {
+  console.log("/UPDATE product")
   const { product } = req.body;
-  console.log("Product : ", product);
 
   const query = {
     _id: mongoose.Types.ObjectId(product._id),
@@ -61,6 +63,7 @@ const alterProduct = async (req, res) => {
 };
 
 const getProductsByBestSeller = async (req, res) => {
+  console.log("/GET product by best seller")
   Product.find({ bestSeller: "true" }).sort({ createdAt: -1 })
     .then((result) => {
       return res.status(200).json(result);
@@ -71,6 +74,7 @@ const getProductsByBestSeller = async (req, res) => {
 };
 
 const getProducts = async (req, res) => {
+  console.log("/GET products")
   try {
     const { limit, page, categorie, subCategorie, inputSearch, sex, marque } = req.query;
 
@@ -117,6 +121,7 @@ const getProducts = async (req, res) => {
 };
 
 const getProductsById = async (req, res) => {
+  console.log("/GET product by id")
   const { id } = req.params;
   Product.findById(id)
     .then((result) => {
@@ -128,6 +133,7 @@ const getProductsById = async (req, res) => {
 };
 
 const getProductOwners = async (req, res) => {
+  console.log("/GET product brands")
   try {
     const uniqueOwnerNames = await Product.aggregate([
       { $group: { _id: "$owner.name" } },

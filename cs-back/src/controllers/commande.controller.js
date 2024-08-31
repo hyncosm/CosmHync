@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { Commande, Product } = require("../models");
 
 const alterCommande = async (req, res) => {
+  console.log("/UPDATE commande")
   const { commande } = req.body;
 
   const query = {
@@ -23,6 +24,7 @@ const alterCommande = async (req, res) => {
 };
 
 const getAllCommandes = async (req, res) => {
+  console.log("/GET commandes")
   try {
     // Fetch all commandes
     const { status } = req.query
@@ -60,6 +62,7 @@ const getAllCommandes = async (req, res) => {
 };
 
 const confirmCommande = async (req, res) => {
+  console.log("/CONFIRM commande")
   try {
     // Extract the commande ID from the request body
     const { id } = req.body;
@@ -86,6 +89,7 @@ const confirmCommande = async (req, res) => {
 }
 
 const cancelCommande = async (req, res) => {
+  console.log("/CANCEL commande")
   try {
     const { id } = req.body;
 
@@ -108,6 +112,7 @@ const cancelCommande = async (req, res) => {
 }
 
 const shipCommande = async (req, res) => {
+  console.log("/SHIP commande")
   try {
     const { id } = req.body;
     const updatedCommande = await Commande.findByIdAndUpdate(

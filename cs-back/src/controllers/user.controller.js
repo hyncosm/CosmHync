@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Users = mongoose.model("User");
 
 const alterUsers = (req, res) => {
+  console.log("/POST new user")
   const { user } = req.body;
   const query = {
     _id: mongoose.Types.ObjectId(user._id),
