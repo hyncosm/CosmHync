@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../models");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 
 //REGISTER
 router.post("/register", async (req, res) => {
@@ -36,6 +37,11 @@ router.post("/login", async (req, res) => {
         return res.status(400).json("wrong password");
       } else {
 
+        const token = jwt.sign({
+          id: user._id,
+          role: user.role,
+        }, "PrivateKey33456", {expiresIn: "15m"});
+
         return res.status(200).json(
           {
             name: user.name,
@@ -45,7 +51,8 @@ router.post("/login", async (req, res) => {
             role: user.role,
             interest: user.interest,
             id: user._id,
-            address: user.address
+            address: user.address,
+            token: token
           }
         );
       }
